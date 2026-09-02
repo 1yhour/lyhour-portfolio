@@ -2,20 +2,19 @@
 import Link from "next/link";
 import { Search, Moon, Sun } from "lucide-react";
 import { useState } from "react";
-import { Command, CommandInput, CommandList } from "@/components/ui/command";
+import { CommandInput, CommandList } from "@/components/ui/command";
 import { Button } from "../ui/button";
 import { CommandDialog, CommandEmpty, CommandGroup, CommandItem } from "cmdk";
-
 import { Notch, NotchItem } from "@/components/ui/notch";
 import { Menu, Home, Info, Briefcase, PhoneCall } from "lucide-react";
 import { useRouter } from "next/navigation";
-
+import Scales from "../ui/scales";
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
 }
 
-const NavLink = ({
+export const NavLink = ({
   href,
   children,
 }: NavLinkProps) => {
@@ -72,10 +71,11 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center justify-between max-w-5xl mx-auto px-4">
+      
+      <header className="sticky mt-2 top-0 z-50 w-full bg-background/95 border-b border-t relative">
+        <div className="relative flex h-14 items-center justify-between max-w-5xl mx-auto px-4">
           <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2"> 
               <svg
                 viewBox="0 0 1133 412"
                 fill="none"
@@ -130,6 +130,7 @@ export default function Navbar() {
             </CommandDialog>
             </div>
               <div className="mx-1 h-4 w-px bg-neutral-300 dark:bg-neutral-700 hidden sm:block"></div>
+              
             <Button
               variant="ghost"
               size="icon"
