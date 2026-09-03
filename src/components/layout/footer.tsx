@@ -8,7 +8,7 @@ import { MdKeyboardArrowUp } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background z-50">
+    <footer className="border-t border-border bg-background">
       <div className="flex flex-col w-full border-l border-r border-border ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 border-b border-border">
           <div className="flex flex-col col-span-2 justify-center p-8 lg:p-12 border-b md:border-b-0 md:border-r border-border">
