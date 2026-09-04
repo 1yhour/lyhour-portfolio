@@ -10,18 +10,8 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        {/* <div className="absolute h-8 w-full border-b">
-          <Scales size={5} />
-        </div>
-        <div className="absolute -bottom-16 w-full h-8 border-b">
-                <Scales size={5} />
-              </div> */}
-        {/* <div className="absolute -inset-y-inset-y-[30%] -right-10 h-[160%] h-8 w-full border-b">
-                <Scales size={5} orientation="diagonal" />
-              </div> */}
-
         <Section>
-          <Container>
+          <Container className="lg:pl-0 lg:pr-0">
             <Hero />
             <GitHubActivity />
           </Container>
