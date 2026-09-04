@@ -19,12 +19,13 @@ export default function Home() {
         {/* <div className="absolute -inset-y-inset-y-[30%] -right-10 h-[160%] h-8 w-full border-b">
                 <Scales size={5} orientation="diagonal" />
               </div> */}
-        <Container>
-          <Section>
+
+        <Section>
+          <Container>
             <Hero />
             <GitHubActivity />
-          </Section>
-        </Container>
+          </Container>
+        </Section>
         
         <About />
       </main>

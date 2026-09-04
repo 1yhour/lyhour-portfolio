@@ -8,12 +8,11 @@ import { CommandDialog, CommandEmpty, CommandGroup, CommandItem } from "cmdk";
 import { Notch, NotchItem } from "@/components/ui/notch";
 import { Menu, Home, Info, Briefcase, PhoneCall } from "lucide-react";
 import { useRouter } from "next/navigation";
-import Scales from "../ui/scales";
+
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
 }
-
 export const NavLink = ({
   href,
   children,

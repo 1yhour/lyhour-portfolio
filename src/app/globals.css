@@ -134,3 +134,7 @@
     @apply font-sans;
   }
 }
+.react-activity-calendar rect {
+  rx: 0px;
+  ry: 0px;
+}
