@@ -1,5 +1,4 @@
 import { SkillCardProps } from "@/data/myskill";
-import { MYSKILL } from "@/data/myskill";
 export const Skill = ({
   icon,
   title,
@@ -16,7 +15,11 @@ export const Skill = ({
         </span>
         {badge && (
           <span className="font-mono text-[8px] tracking-widest uppercase px-1 py-0.5 leading-none group-hover:border-background/40 group-hover:text-background/70 transition-colors [&>svg]:hidden">
-            {typeof badge === "string" ? badge : <span className="[&>*]:!text-[8px]">{badge}</span>}
+            {typeof badge === "string" ? (
+              badge
+            ) : (
+              <span className="[&>*]:!text-[8px]">{badge}</span>
+            )}
           </span>
         )}
       </div>
@@ -39,42 +42,3 @@ export const Skill = ({
     </div>
   );
 };
-
-export default function SkillCard() {
-  return (
-    <div className="w-full flex flex-col gap-0 mt-6">
-      
-      <div className="flex items-baseline gap-4 border-b border-border py-2 mb-0">
-        <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground select-none">
-          §01
-        </span>
-        <h2 className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase flex-1">
-          Core Technologies &amp; Tools
-        </h2>
-        <span className="font-mono text-[9px] tracking-widest text-muted-foreground select-none hidden sm:block">
-          {MYSKILL.length}&nbsp;ITEMS
-        </span>
-      </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
-        {MYSKILL.map(({ title, icon, description, level, badge }, i) => (
-          <div key={title} className="-mt-px -ml-px first:ml-0">
-            <Skill
-              index={i}
-              icon={icon}
-              title={title}
-              description={description}
-              level={level}
-              badge={badge}
-            />
-          </div>
-        ))}
-      </div>
-      <div className="border-t border-border py-1.5 flex justify-end">
-        <span className="font-mono text-[8px] tracking-[0.25em] uppercase text-muted-foreground select-none">
-          END OF SECTION
-        </span>
-      </div>
-    </div>
-  );
-}
-

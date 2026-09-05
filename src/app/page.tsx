@@ -3,8 +3,8 @@ import Navbar from "../components/layout/navbar";
 import { Container, Section } from "@/components/layout/container";
 import Hero from "@/components/sections/hero/hero";
 import { GitHubActivity } from "@/components/sections/github-activity";
-import About from "@/components/sections/skills/skills";
-import Scales from "@/components/ui/scales";
+import Skills from "@/components/sections/skills/skills";
+import About from "@/components/sections/about/about";
 export default function Home() {
   return (
     <>
@@ -16,8 +16,9 @@ export default function Home() {
             <GitHubActivity />
           </Container>
         </Section>
-        
         <About />
+        <Skills />
+        
       </main>
       <Footer />
     </>

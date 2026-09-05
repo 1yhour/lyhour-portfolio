@@ -94,22 +94,22 @@ export default function Hero() {
           </div>
           <div className="mt-3 md:mt-4 flex gap-1 sm:gap-2 items-start justify-start">
             <NavLink href="https://github.com/1yhour">
-              <div className="bg-foreground/5 hover:bg-foreground/10 transition-colors border border-border p-1.5 sm:p-2 rounded-md">
+              <div className="bg-foreground/5 hover:bg-foreground/10 transition-colors border border-border p-1.5 sm:p-2">
                 <FaGithub className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </NavLink>
             <NavLink href="https://linkedin.com">
-              <div className="bg-foreground/5 hover:bg-foreground/10 transition-colors border border-border p-1.5 sm:p-2 rounded-md">
+              <div className="bg-foreground/5 hover:bg-foreground/10 transition-colors border border-border p-1.5 sm:p-2">
                 <FaLinkedinIn className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </NavLink>
             <NavLink href="https://telegram.org">
-              <div className="bg-foreground/5 hover:bg-foreground/10 transition-colors border border-border p-1.5 sm:p-2 rounded-md">
+              <div className="bg-foreground/5 hover:bg-foreground/10 transition-colors border border-border p-1.5 sm:p-2">
                 <FaTelegram className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </NavLink>
             <NavLink href="https://facebook.com">
-              <div className="bg-foreground/5 hover:bg-foreground/10 transition-colors border border-border p-1.5 sm:p-2 rounded-md">
+              <div className="bg-foreground/5 hover:bg-foreground/10 transition-colors border border-border p-1.5 sm:p-2">
                 <FaFacebook className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </NavLink>

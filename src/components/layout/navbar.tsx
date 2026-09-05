@@ -72,7 +72,7 @@ export default function Navbar() {
     <>
       
       <header className="sticky mt-2 top-0 z-50 w-full bg-background/95 border-b border-t relative ">
-        <div className="relative flex h-14 items-center justify-between max-w-5xl mx-auto px-8 ">
+        <div className="relative flex h-14 items-center justify-between max-w-4xl mx-auto px-8 ">
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center space-x-2"> 
               <svg
