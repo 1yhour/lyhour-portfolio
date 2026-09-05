@@ -31,12 +31,14 @@ export const MYSKILL: SkillCardProps[] = [
     icon: <BiLogoPostgresql className="h-12 w-12 text-foreground" />,
     title: "PostgreSQL",
     description:"Database",
+    badge: <Badge>SQL</Badge>,
     level: "Advanced",
   },
   {
     icon: <SiTypescript className="h-12 w-12 text-foreground" />,
     title: "TypeScript",
     description:"Language",
+    badge: <Badge>Type Safe</Badge>,
     level: "Advanced",
   },
   {

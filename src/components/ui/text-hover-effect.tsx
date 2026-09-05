@@ -105,11 +105,8 @@ export const TextHoverEffect = ({
         dominantBaseline="middle"
         strokeWidth="0.3"
         className="fill-transparent stroke-neutral-200 font-[family-name:var(--font-pixelify-sans)] text-7xl font-bold dark:stroke-neutral-800"
-        initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
-        animate={{
-          strokeDashoffset: 0,
-          strokeDasharray: 1000,
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{
           duration: 4,
           ease: "easeInOut",
@@ -122,10 +119,11 @@ export const TextHoverEffect = ({
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
+        fill="url(#textGradient)"
         stroke="url(#textGradient)"
         strokeWidth="0.3"
         mask="url(#textMask)"
-        className="fill-transparent font-[family-name:var(--font-pixelify-sans)] text-7xl font-bold"
+        className="font-[family-name:var(--font-pixelify-sans)] text-7xl font-bold"
       >
         {text}
       </text>

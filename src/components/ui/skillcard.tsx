@@ -1,72 +1,80 @@
 import { SkillCardProps } from "@/data/myskill";
 import { MYSKILL } from "@/data/myskill";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
 export const Skill = ({
   icon,
   title,
   description,
   level,
   badge,
-}: SkillCardProps) => {
+  index,
+}: SkillCardProps & { index: number }) => {
   return (
-    <Card className="relative group bg-transparent border-border rounded-none hover:bg-foreground/[0.02] transition-colors duration-200 p-2">
-      {badge && (
-        <div className="absolute top-2 right-2 z-10 [&>div]:rounded-none [&>div]:border-foreground [&>div]:text-[8px] [&>div]:px-1 [&>div]:py-0 [&>div]:font-mono [&>div]:uppercase [&>div]:tracking-widest">
-          {badge}
-        </div>
-      )}
-
-      <CardHeader className="flex flex-col items-start pt-3 pb-1">
-        <div className="mb-1 text-foreground/70 group-hover:text-foreground transition-colors duration-200 [&>svg]:w-6 [&>svg]:h-6">
-          {icon}
-        </div>
-        <CardTitle className="text-sm md:text-base font-bold tracking-tight uppercase leading-none">
-          {title}
-        </CardTitle>
-        <CardDescription className="text-[9px] md:text-[10px] font-mono uppercase tracking-widest mt-0.5 text-foreground/50 leading-none">
+    <div className="group relative border border-border flex flex-col justify-between p-4 min-h-[160px] hover:bg-foreground hover:text-background transition-colors duration-150 cursor-default overflow-hidden">
+      <div className="flex items-start justify-between mb-3">
+        <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground group-hover:text-background/60 transition-colors leading-none select-none">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        {badge && (
+          <span className="font-mono text-[8px] tracking-widest uppercase px-1 py-0.5 leading-none group-hover:border-background/40 group-hover:text-background/70 transition-colors [&>svg]:hidden">
+            {typeof badge === "string" ? badge : <span className="[&>*]:!text-[8px]">{badge}</span>}
+          </span>
+        )}
+      </div>
+      <div className="flex-1 flex items-center mb-3 [&>svg]:w-8 [&>svg]:h-8 [&>svg]:transition-colors [&>svg]:duration-150 group-hover:[&>svg]:text-background text-foreground">
+        {icon}
+      </div>
+      <div className="flex flex-col gap-0.5 border-t border-border group-hover:border-background/30 pt-2 transition-colors">
+        <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground group-hover:text-background/60 leading-none transition-colors">
           {description}
-        </CardDescription>
-      </CardHeader>
-
-      <CardContent className="pb-3 text-left">
-        <span className="text-[9px] uppercase tracking-widest font-mono text-muted-foreground border-b border-border/50 pb-0.5 leading-none">
+        </span>
+        <span className="font-bold text-sm md:text-base uppercase tracking-tight leading-tight">
+          {title}
+        </span>
+        <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-muted-foreground group-hover:text-background/50 leading-none mt-0.5 transition-colors">
           {level}
         </span>
-      </CardContent>
-    </Card>
+      </div>
+      <span className="pointer-events-none absolute top-0 left-0 w-2 h-2 border-r border-b border-foreground/10 group-hover:border-background/20 transition-colors" />
+      <span className="pointer-events-none absolute bottom-0 right-0 w-2 h-2 border-l border-t border-foreground/10 group-hover:border-background/20 transition-colors" />
+    </div>
   );
 };
 
 export default function SkillCard() {
   return (
-    <div className="w-full flex flex-col gap-4 mt-6">
-      <div className="flex flex-col gap-2">
-        <h2 className="scroll-m-20 text-xl md:text-2xl font-bold tracking-tight uppercase">
-          Core Technologies & Tools
-        </h2>
-    
-      </div>
+    <div className="w-full flex flex-col gap-0 mt-6">
       
-      {/* Improved responsive grid layout */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-        {MYSKILL.map(({ title, icon, description, level, badge }) => (
-          <Skill
-            key={title}
-            icon={icon}
-            title={title}
-            description={description}
-            level={level}
-            badge={badge}
-          />
+      <div className="flex items-baseline gap-4 border-b border-border py-2 mb-0">
+        <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground select-none">
+          §01
+        </span>
+        <h2 className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase flex-1">
+          Core Technologies &amp; Tools
+        </h2>
+        <span className="font-mono text-[9px] tracking-widest text-muted-foreground select-none hidden sm:block">
+          {MYSKILL.length}&nbsp;ITEMS
+        </span>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+        {MYSKILL.map(({ title, icon, description, level, badge }, i) => (
+          <div key={title} className="-mt-px -ml-px first:ml-0">
+            <Skill
+              index={i}
+              icon={icon}
+              title={title}
+              description={description}
+              level={level}
+              badge={badge}
+            />
+          </div>
         ))}
+      </div>
+      <div className="border-t border-border py-1.5 flex justify-end">
+        <span className="font-mono text-[8px] tracking-[0.25em] uppercase text-muted-foreground select-none">
+          END OF SECTION
+        </span>
       </div>
     </div>
   );
 }
+

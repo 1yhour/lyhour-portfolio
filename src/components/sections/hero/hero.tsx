@@ -6,6 +6,8 @@ import Image from "next/image";
 import { NavLink } from "../../layout/navbar";
 import { FaFacebook, FaGithub, FaLinkedinIn, FaTelegram } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
+
 const ROLE = [
   {
     id: 0,
@@ -59,13 +61,6 @@ function DateTime({ className }: { className?: string }) {
 }
 
 export default function Hero() {
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRoleIndex((prev) => (prev + 1) % ROLE.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 relative">
@@ -88,16 +83,14 @@ export default function Hero() {
             Seng Lyhour
           </h1>
           <div className="h-6 mt-1 md:mt-2 relative w-full flex justify-start">
-            {ROLE.map((r, index) => (
-              <span
-                key={r.id}
-                className={`absolute transition-opacity duration-1000 ${
-                  index === currentRoleIndex ? "opacity-100" : "opacity-0"
-                } text-muted-foreground font-medium text-sm sm:text-base`}
-              >
-                {r.role}
-              </span>
-            ))}
+            <DiaTextReveal
+              text={ROLE.map((r) => r.role)}
+              repeat
+              repeatDelay={1.5}
+              duration={1.2}
+              fixedWidth
+              className="text-muted-foreground font-medium text-sm sm:text-base"
+            />
           </div>
           <div className="mt-3 md:mt-4 flex gap-1 sm:gap-2 items-start justify-start">
             <NavLink href="https://github.com/1yhour">
