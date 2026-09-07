@@ -5,11 +5,11 @@ import { MYSKILL } from "@/data/myskill";
 
 export default function Skills() {
   return (
-    <Section>
-      <Container className="lg:pt-6">
-        <div className="w-full flex flex-col gap-0 mt-6">
+    <Section id="skills">
+      <Container className="lg:mt-[-50]">
+        <div className="w-full flex flex-col gap-0">
           <Title page="§02" title="Core Technologies & Tools" count={MYSKILL.length} />
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 mt-5">
             {MYSKILL.map(({ title, icon, description, level, badge }, i) => (
               <div key={title} className="-mt-px -ml-px first:ml-0">
                 <Skill

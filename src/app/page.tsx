@@ -5,12 +5,14 @@ import Hero from "@/components/sections/hero/hero";
 import { GitHubActivity } from "@/components/sections/github-activity";
 import Skills from "@/components/sections/skills/skills";
 import About from "@/components/sections/about/about";
+import Project from "@/components/sections/project/project";
+import EducationSection from "@/components/sections/education/education";
 export default function Home() {
   return (
     <>
       <Navbar />
       <main>
-        <Section>
+        <Section id="home">
           <Container className="lg:pl-0 lg:pr-0">
             <Hero />
             <GitHubActivity />
@@ -18,7 +20,8 @@ export default function Home() {
         </Section>
         <About />
         <Skills />
-        
+        <EducationSection />
+        <Project />
       </main>
       <Footer />
     </>

@@ -1,3 +1,4 @@
+"use client";
 import { TextHoverEffect } from "../ui/text-hover-effect";
 import { NavLink } from "./navbar";
 import { FaLinkedin, FaTelegram } from "react-icons/fa";
@@ -5,10 +6,11 @@ import { FaGithub } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
 import { Button } from "../ui/button";
 import { MdKeyboardArrowUp } from "react-icons/md";
-
+import { Section } from "./container";
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
+      <Section id="contact">
       <div className="flex flex-col w-full border-l border-r border-border ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 border-b border-border">
           <div className="flex flex-col col-span-2 justify-center p-8 lg:p-12 border-b md:border-b-0 md:border-r border-border">
@@ -47,10 +49,11 @@ export default function Footer() {
               Navigation
             </span>
             <nav className="flex flex-col gap-3 text-muted-foreground text-sm">
-              <NavLink href="/about">About</NavLink>
-              <NavLink href="/services">Services</NavLink>
-              <NavLink href="/projects">Projects</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
+              <NavLink href="#about">About</NavLink>
+              <NavLink href="#skills">Skills</NavLink>
+              <NavLink href="#education">Education</NavLink>
+              <NavLink href="#projects">Projects</NavLink>
+              <NavLink href="#contact">Contact</NavLink>
             </nav>
           </div>
           <div className="flex flex-col justify-center p-6 lg:p-8">
@@ -86,6 +89,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      </Section>
       <div className="flex flex-col sm:flex-row items-center justify-between border-t p-6 md:p-8 text-sm text-muted-foreground gap-4">
         <span>© 2026 Seng Lyhour</span>
         <span className="font-medium tracking-widest uppercase text-xs">
@@ -93,7 +97,8 @@ export default function Footer() {
         </span>
         <Button
           variant="ghost"
-          className="hover:bg-transparent hover:text-foreground"
+          className="hover:bg-transparent hover:text-foreground cursor-pointer"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           Back to Top <MdKeyboardArrowUp className="ml-2 h-4 w-4" />
         </Button>

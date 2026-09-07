@@ -6,30 +6,48 @@ import { CommandInput, CommandList } from "@/components/ui/command";
 import { Button } from "../ui/button";
 import { CommandDialog, CommandEmpty, CommandGroup, CommandItem } from "cmdk";
 import { Notch, NotchItem } from "@/components/ui/notch";
-import { Menu, Home, Info, Briefcase, PhoneCall } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { Menu, Home, Info, Code, GraduationCap, FolderGit2, PhoneCall } from "lucide-react";
 
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
 }
+
 export const NavLink = ({
   href,
   children,
+  className,
+  onClick,
 }: NavLinkProps) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    }
+    if (onClick) onClick();
+  };
+
   return (
     <Link
       href={href}
-      className="transition-colors hover:text-foreground/80 text-foreground/60"
+      onClick={handleClick}
+      className={`transition-colors hover:text-foreground/80 text-foreground/60 cursor-pointer ${className || ""}`}
     >
       {children}
     </Link>
   );
 };
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const router = useRouter();
 
   const toggleMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -37,6 +55,14 @@ export default function Navbar() {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
+    }
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", `#${id}`);
     }
   };
 
@@ -53,28 +79,35 @@ export default function Navbar() {
       label: "Menu",
       icon: <Menu className="h-4 w-4" />,
       options: [
-        { id: "/", label: "Home", icon: <Home className="h-4 w-4" /> },
-        { id: "/about", label: "About", icon: <Info className="h-4 w-4" /> },
-        { id: "/services", label: "Services", icon: <Briefcase className="h-4 w-4" /> },
-        { id: "/projects", label: "Projects", icon: <Search className="h-4 w-4" /> },
-        { id: "/contact", label: "Contact", icon: <PhoneCall className="h-4 w-4" /> },
+        { id: "home", label: "Home", icon: <Home className="h-4 w-4" /> },
+        { id: "about", label: "About", icon: <Info className="h-4 w-4" /> },
+        { id: "skills", label: "Skills", icon: <Code className="h-4 w-4" /> },
+        { id: "education", label: "Education", icon: <GraduationCap className="h-4 w-4" /> },
+        { id: "projects", label: "Projects", icon: <FolderGit2 className="h-4 w-4" /> },
+        { id: "contact", label: "Contact", icon: <PhoneCall className="h-4 w-4" /> },
       ],
     },
   ];
 
   const handleNotchChange = (itemId: string, optionId: string) => {
     if (itemId === "menu") {
-      router.push(optionId);
+      scrollToSection(optionId);
     }
   };
 
   return (
     <>
-      
-      <header className="sticky mt-2 top-0 z-50 w-full bg-background/95 border-b border-t relative ">
-        <div className="relative flex h-14 items-center justify-between max-w-4xl mx-auto px-8 ">
+      <header className="sticky mt-2 top-0 z-50 w-full bg-background/95 border-b border-t relative backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="relative flex h-14 items-center justify-between max-w-4xl mx-auto px-8">
           <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center space-x-2"> 
+            <Link
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("home");
+              }}
+              className="flex items-center space-x-2 cursor-pointer"
+            >
               <svg
                 viewBox="0 0 1133 412"
                 fill="none"
@@ -95,41 +128,55 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2">
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-              <NavLink href="/about">About</NavLink>
-              <NavLink href="/services">Services</NavLink>
-              <NavLink href="/projects">Projects</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
+              <NavLink href="#about">About</NavLink>
+              <NavLink href="#skills">Skills</NavLink>
+              <NavLink href="#education">Education</NavLink>
+              <NavLink href="#projects">Projects</NavLink>
+              <NavLink href="#contact">Contact</NavLink>
             </nav>
             <div className="hidden sm:block">
               <Button
-              variant="outline"
-              className="relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
-              onClick={() => setOpen(true)}
-            >
-              <Search className="mr-2 h-4 w-4" />
-              <span className="hidden lg:inline-flex">Search...</span>
-              <span className="inline-flex lg:hidden">Search...</span>
-              <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-                <span className="text-xs">⌘</span>K
-              </kbd>
-            </Button>
+                variant="outline"
+                className="relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
+                onClick={() => setOpen(true)}
+              >
+                <Search className="mr-2 h-4 w-4" />
+                <span className="hidden lg:inline-flex">Search...</span>
+                <span className="inline-flex lg:hidden">Search...</span>
+                <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+                  <span className="text-xs">⌘</span>K
+                </kbd>
+              </Button>
 
-            <CommandDialog open={open} onOpenChange={setOpen}>
-              <CommandInput placeholder="Type a command or search..." />
-              <CommandList>
-                <CommandEmpty>No results found.</CommandEmpty>
-                <CommandGroup heading="Links">
-                  <CommandItem onSelect={() => { router.push("/"); setOpen(false); }}>Home</CommandItem>
-                  <CommandItem onSelect={() => { router.push("/about"); setOpen(false); }}>About</CommandItem>
-                  <CommandItem onSelect={() => { router.push("/services"); setOpen(false); }}>Services</CommandItem>
-                  <CommandItem onSelect={() => { router.push("/projects"); setOpen(false); }}>Projects</CommandItem>
-                  <CommandItem onSelect={() => { router.push("/contact"); setOpen(false); }}>Contact</CommandItem>
-                </CommandGroup>
-              </CommandList>
-            </CommandDialog>
+              <CommandDialog open={open} onOpenChange={setOpen}>
+                <CommandInput placeholder="Type a command or search..." />
+                <CommandList>
+                  <CommandEmpty>No results found.</CommandEmpty>
+                  <CommandGroup heading="Sections">
+                    <CommandItem onSelect={() => { scrollToSection("home"); setOpen(false); }}>
+                      Home
+                    </CommandItem>
+                    <CommandItem onSelect={() => { scrollToSection("about"); setOpen(false); }}>
+                      About
+                    </CommandItem>
+                    <CommandItem onSelect={() => { scrollToSection("skills"); setOpen(false); }}>
+                      Skills
+                    </CommandItem>
+                    <CommandItem onSelect={() => { scrollToSection("education"); setOpen(false); }}>
+                      Education
+                    </CommandItem>
+                    <CommandItem onSelect={() => { scrollToSection("projects"); setOpen(false); }}>
+                      Projects
+                    </CommandItem>
+                    <CommandItem onSelect={() => { scrollToSection("contact"); setOpen(false); }}>
+                      Contact
+                    </CommandItem>
+                  </CommandGroup>
+                </CommandList>
+              </CommandDialog>
             </div>
-              <div className="mx-1 h-4 w-px bg-neutral-300 dark:bg-neutral-700 hidden sm:block"></div>
-              
+            <div className="mx-1 h-4 w-px bg-neutral-300 dark:bg-neutral-700 hidden sm:block"></div>
+
             <Button
               variant="ghost"
               size="icon"

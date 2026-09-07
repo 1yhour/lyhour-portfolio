@@ -13,7 +13,7 @@ export default function About() {
   const greeting = getGreeting();
 
   return (
-    <Section>
+    <Section id="about" >
         <Container className="lg:mt-[-50]">
             <div className="w-full flex flex-col gap-0">
                 <Title page="§01" title={greeting} />

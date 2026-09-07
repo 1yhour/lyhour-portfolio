@@ -8,7 +8,8 @@ export default function Title({
   count?: number;
 }) {
   return (
-    <div className="flex items-baseline gap-4 border-b border-border py-2">
+    <div className="relative flex items-baseline gap-4 py-2">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-screen border-b border-border pointer-events-none" />
       <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground select-none">
         {page}
       </span>
