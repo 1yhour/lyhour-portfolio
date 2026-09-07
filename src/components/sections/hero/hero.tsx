@@ -68,7 +68,7 @@ export default function Hero() {
 
       <div className="flex flex-row items-center justify-start md:justify-center md:col-span-2">
         <div className="border-r border-border flex justify-center shrink-0">
-          <div className="w-fit h-40 overflow-hidden rounded-full m-4">
+          <div className="w-40 h-40 overflow-hidden rounded-full m-4">
             <Image
               src={MyImage}
               alt="My Image"
