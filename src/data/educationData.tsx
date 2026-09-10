@@ -1,10 +1,5 @@
-import { IoIosSchool } from "react-icons/io";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import React from "react";
-
 export interface EducationCardProps {
   id: string;
-  icon: React.ReactNode;
   school: string;
   period: string;
   degree?: string;
@@ -39,9 +34,6 @@ export const EDUCATIONDATA = [
       "Gained experience in Agile methodologies, team collaboration, and project management.",
       "Relevant awards and achievements include hackathons and coding competitions.",
     ],
-    icon: (
-      <IoIosSchool size={32} className="fill-muted-foreground transition-colors duration-300 group-hover:fill-foreground" />
-    ),
     isOpen: false,
   },
   {
@@ -59,9 +51,7 @@ export const EDUCATIONDATA = [
       "Collaborated in Agile teams, practicing Git version control, code reviews, and CI/CD pipelines for efficient deployment.",
       "Achieved 90%+ project completion rate and received certification in Backend Development.",
     ],
-    icon: (
-      <IoIosSchool size={32} className="fill-muted-foreground transition-colors duration-300 group-hover:fill-foreground" />
-    ),
+
     isOpen: false,
   },
 ];

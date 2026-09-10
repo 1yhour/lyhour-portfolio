@@ -1,18 +1,16 @@
-"use client"
+"use client";
 import { Container, Section } from "@/components/layout/container";
 import Title from "@/components/ui/title";
 import { useState, useEffect } from "react";
 export default function About() {
-  const [greeting, setGreeting] = useState("");
+  const [now, setNow] = useState(() => new Date());
+
   useEffect(() => {
-    const getGreeting = () => {
-      const hour = new Date().getHours();
-      if (hour < 12) return "Good morning";
-      if (hour < 18) return "Good afternoon";
-      return "Good evening";
-    };
-    setGreeting(getGreeting());
+    const interval = setInterval(() => (setNow(new Date()), 60000));
+    return () => clearInterval(interval);
   }, []);
+  const hour = now.getHours();
+  const greeting = `Good ${hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening"}`;
 
   return (
     <Section id="about">
