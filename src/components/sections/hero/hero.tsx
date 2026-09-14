@@ -74,7 +74,7 @@ export default function Hero() {
           <div className="w-40 h-40 overflow-hidden rounded-full m-4">
             <Image
               src={MyImage}
-              alt="My Image"
+              alt="Seng Lyhour - Full-Stack Developer & Software Engineer"
               loading="eager"
               className="w-full h-full object-cover"
             />
