@@ -1,10 +1,8 @@
 "use client";
 import Link from "next/link";
-import { Search, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useState } from "react";
-import { CommandInput, CommandList } from "@/components/ui/command";
 import { Button } from "../ui/button";
-import { CommandDialog, CommandEmpty, CommandGroup, CommandItem } from "cmdk";
 import { Notch, NotchItem } from "@/components/ui/notch";
 import { Menu, Home, Info, Code, GraduationCap, FolderGit2, PhoneCall } from "lucide-react";
 
@@ -68,13 +66,6 @@ export default function Navbar() {
 
   const notchItems: NotchItem[] = [
     {
-      id: "search",
-      label: "Search",
-      icon: <Search className="h-4 w-4" />,
-      options: [],
-      onClick: () => setOpen(true),
-    },
-    {
       id: "menu",
       label: "Menu",
       icon: <Menu className="h-4 w-4" />,
@@ -134,47 +125,7 @@ export default function Navbar() {
               <NavLink href="#projects">Projects</NavLink>
               <NavLink href="#contact">Contact</NavLink>
             </nav>
-            <div className="hidden sm:block">
-              <Button
-                variant="outline"
-                className="relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/40 font-mono text-xs font-normal text-muted-foreground shadow-none sm:pr-12 md:w-36 lg:w-48 border-border hover:text-foreground"
-                onClick={() => setOpen(true)}
-              >
-                <Search className="mr-2 h-3.5 w-3.5" />
-                <span className="hidden lg:inline-flex uppercase tracking-wider text-[11px]">SEARCH...</span>
-                <span className="inline-flex lg:hidden uppercase tracking-wider text-[11px]">SEARCH</span>
-                <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[9px] font-medium opacity-100 sm:flex">
-                  <span className="text-[10px]">⌘</span>K
-                </kbd>
-              </Button>
 
-              <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput placeholder="Type a command or search..." />
-                <CommandList>
-                  <CommandEmpty>No results found.</CommandEmpty>
-                  <CommandGroup heading="Sections">
-                    <CommandItem onSelect={() => { scrollToSection("home"); setOpen(false); }}>
-                      Home
-                    </CommandItem>
-                    <CommandItem onSelect={() => { scrollToSection("about"); setOpen(false); }}>
-                      About
-                    </CommandItem>
-                    <CommandItem onSelect={() => { scrollToSection("skills"); setOpen(false); }}>
-                      Skills
-                    </CommandItem>
-                    <CommandItem onSelect={() => { scrollToSection("education"); setOpen(false); }}>
-                      Education
-                    </CommandItem>
-                    <CommandItem onSelect={() => { scrollToSection("projects"); setOpen(false); }}>
-                      Projects
-                    </CommandItem>
-                    <CommandItem onSelect={() => { scrollToSection("contact"); setOpen(false); }}>
-                      Contact
-                    </CommandItem>
-                  </CommandGroup>
-                </CommandList>
-              </CommandDialog>
-            </div>
             <div className="mx-1 h-4 w-px bg-neutral-300 dark:bg-neutral-700 hidden sm:block"></div>
 
             <Button
