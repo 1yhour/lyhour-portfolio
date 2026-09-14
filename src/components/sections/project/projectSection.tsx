@@ -17,23 +17,25 @@ export default function ProjectSection() {
     return (
         <Section id="projects">
             <Container className="lg:mt-[-50]">
-                <Title title="Projects" page="§04" />
-                <div className="flex flex-col divide-y divide-border">
-                    {PROJECTDATA.map((project) => (
-                        <ProjectCard
-                            key={project.id}
-                            id={project.id}
-                            title={project.title}
-                            duration={project.duration}
-                            openTitle={project.openTitle}
-                            description={project.description}
-                            tags={project.tags}
-                            icon={project.icon}
-                            githubUrl={project.githubUrl}
-                            isOpen={openIds.has(project.id)}
-                            toggleOpen={toggleOpen}
-                        />
-                    ))}
+                <div className="w-full flex flex-col gap-0">
+                    <Title title="Projects" page="§04" count={PROJECTDATA.length} />
+                    <div className="flex flex-col gap-4 mt-6 ">
+                        {PROJECTDATA.map((project) => (
+                            <ProjectCard
+                                key={project.id}
+                                id={project.id}
+                                title={project.title}
+                                duration={project.duration}
+                                openTitle={project.openTitle}
+                                description={project.description}
+                                tags={project.tags}
+                                icon={project.icon}
+                                githubUrl={project.githubUrl}
+                                isOpen={openIds.has(project.id)}
+                                toggleOpen={toggleOpen}
+                            />
+                        ))}
+                    </div>
                 </div>
             </Container>
         </Section>

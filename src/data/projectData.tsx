@@ -71,7 +71,7 @@ export const PROJECTDATA = [
         "Tailwind CSS",
         "Docker",
       ],
-    gitHubUrl: "https://github.com/yehemo/Ecommerce",
+    githubUrl: "https://github.com/yehemo/Ecommerce",
     isOpen: false,
     icon: (
         <BsCartDash size={24} className="group-hover:fill-background fill-muted-foreground transition-colors duration-300" />
@@ -97,7 +97,7 @@ export const PROJECTDATA = [
         "Vercel",
         "Vite"
     ],
-    gitHubUrl: "https://github.com/1yhour/animated-portfolio",
+    githubUrl: "https://github.com/1yhour/animated-portfolio",
     isOpen: false,
     icon: (
       <FaRegUser size={24} className="group-hover:fill-background fill-muted-foreground transition-colors duration-300" />
