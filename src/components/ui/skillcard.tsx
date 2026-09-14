@@ -10,11 +10,11 @@ export const Skill = ({
   return (
     <div className="group relative border border-border flex flex-col justify-between p-4 min-h-[160px] hover:bg-foreground hover:text-background transition-colors duration-150 cursor-default overflow-hidden">
       <div className="flex items-start justify-between mb-3">
-        <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted-foreground group-hover:text-background/60 transition-colors leading-none select-none">
+        <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground group-hover:text-background/60 transition-colors leading-none select-none">
           {String(index + 1).padStart(2, "0")}
         </span>
         {badge && (
-          <span className="font-mono text-[8px] tracking-widest uppercase px-1 py-0.5 leading-none group-hover:border-background/40 group-hover:text-background/70 transition-colors [&>svg]:hidden">
+          <span className="font-mono text-[9px] tracking-widest uppercase px-1.5 py-0.5 leading-none group-hover:border-background/40 group-hover:text-background/70 transition-colors [&>svg]:hidden">
             {typeof badge === "string" ? (
               badge
             ) : (
@@ -27,13 +27,13 @@ export const Skill = ({
         {icon}
       </div>
       <div className="flex flex-col gap-0.5 border-t border-border group-hover:border-background/30 pt-2 transition-colors">
-        <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground group-hover:text-background/60 leading-none transition-colors">
+        <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted-foreground group-hover:text-background/60 leading-none transition-colors">
           {description}
         </span>
         <span className="font-bold text-sm md:text-base uppercase tracking-tight leading-tight">
           {title}
         </span>
-        <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-muted-foreground group-hover:text-background/50 leading-none mt-0.5 transition-colors">
+        <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-muted-foreground group-hover:text-background/50 leading-none mt-0.5 transition-colors">
           {level}
         </span>
       </div>

@@ -37,9 +37,11 @@ function DateTime({ className }: { className?: string }) {
   if (!date) {
     return (
       <div className={cn("flex flex-col", className)}>
-        <span className="uppercase text-2xl md:text-3xl lg:text-5xl invisible">00:00 AM</span>
-        <span className="uppercase text-xs text-muted-foreground">
-          Phnom penh, cambodia
+        <span className="font-mono font-bold text-2xl lg:text-4xl tracking-tight uppercase invisible">
+          00:00 AM
+        </span>
+        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">
+          Phnom Penh, Cambodia [UTC+7]
         </span>
       </div>
     );
@@ -52,16 +54,17 @@ function DateTime({ className }: { className?: string }) {
 
   return (
     <div className={cn("flex flex-col", className)}>
-      <span className="uppercase text-2xl lg:text-5xl">{formatTime}</span>
-      <span className="uppercase text-xs text-muted-foreground">
-        Phnom penh, cambodia
+      <span className="font-mono font-bold text-2xl lg:text-4xl tracking-tight text-foreground uppercase">
+        {formatTime}
+      </span>
+      <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">
+        Phnom Penh, Cambodia [UTC+7]
       </span>
     </div>
   );
 }
 
 export default function Hero() {
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 relative">
       <div className="absolute top-0 bottom-0 w-[100vw] left-1/2 -translate-x-1/2 border-b border-border pointer-events-none -z-10"></div>
@@ -79,7 +82,7 @@ export default function Hero() {
         </div>
 
         <div className="flex-1 flex flex-col items-start px-4 sm:px-8 py-4 w-full text-left">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tighter">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase tracking-tight text-foreground">
             Seng Lyhour
           </h1>
           <div className="h-6 mt-1 md:mt-2 relative w-full flex justify-start">
@@ -89,7 +92,7 @@ export default function Hero() {
               repeatDelay={1.5}
               duration={1.2}
               fixedWidth
-              className="text-muted-foreground font-medium text-sm sm:text-base"
+              className="font-mono text-xs sm:text-sm text-muted-foreground tracking-wide font-normal"
             />
           </div>
           <div className="mt-3 md:mt-4 flex gap-1 sm:gap-2 items-start justify-start">
@@ -118,8 +121,8 @@ export default function Hero() {
       </div>
       <div className="flex flex-row md:flex-col justify-between md:justify-center items-center md:items-start border-t md:border-t-0 md:border-l border-border relative py-4 px-4 md:py-0 md:px-0">
         <div className="md:absolute top-4 right-4 flex justify-center items-center">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse "></div>
-          <span className="text-xs font-medium text-green-500 ml-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+          <span className="font-mono text-[9px] sm:text-[10px] tracking-widest uppercase text-emerald-500 ml-2">
             Available for work
           </span>
         </div>

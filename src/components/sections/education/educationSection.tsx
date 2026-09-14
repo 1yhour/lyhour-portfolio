@@ -17,7 +17,7 @@ export default function EducationSection() {
   return (
     <Section id="education">
       <Container className="lg:mt-[-50]">
-        <Title title="Education" page="§03" />
+        <Title title="Education" page="§03" count={EDUCATIONDATA.length} />
         <div className="flex flex-col divide-y divide-border">
           {EDUCATIONDATA.map((education) => (
             <EducationCard
@@ -34,6 +34,11 @@ export default function EducationSection() {
               toggleOpen={toggleOpen}
             />
           ))}
+        </div>
+        <div className="border-t border-border py-1.5 flex justify-end mt-6">
+          <span className="font-mono text-[8px] tracking-[0.25em] uppercase text-muted-foreground select-none">
+            END OF SECTION
+          </span>
         </div>
       </Container>
     </Section>

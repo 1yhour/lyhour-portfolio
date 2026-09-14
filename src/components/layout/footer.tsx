@@ -245,7 +245,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-2 select-none">
               <span className="text-border">[</span>
-              <span className="text-foreground font-medium">BE KIND // BUILD CLEAN</span>
+              <span className="text-foreground font-medium">BE KIND</span>
               <span className="text-border">]</span>
             </div>
             <button

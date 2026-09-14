@@ -17,11 +17,8 @@ export default function About() {
       <Container className="lg:mt-[-50]">
         <div className="w-full flex flex-col gap-0">
           <Title page="§01" title={greeting} />
-          <p className="font-mono text-sm mt-5">
-            Hello i&apos;m Lyhour a student from RUPP with a passion for
-            building innovative and user-friendly web applications. Currently,
-            I&apos;m exploring the world of AI, cloud technologies, and modern
-            web development.
+          <p className="font-mono text-xs sm:text-sm mt-6 text-foreground/90 leading-relaxed max-w-2xl">
+            Hello, I&apos;m Lyhour — a computer science student at RUPP with a focus on building resilient, high-performance, and user-centric web applications. Currently engineering modern full-stack systems, exploring cloud infrastructures, and experimenting with AI integrations.
           </p>
         </div>
       </Container>

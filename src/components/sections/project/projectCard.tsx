@@ -43,7 +43,7 @@ export default function ProjectCard({
                                     {duration}
                                 </span>
                             </div>
-                            <h3 className="font-semibold text-foreground text-sm sm:text-base leading-snug mt-1 group-hover:text-primary transition-colors">
+                            <h3 className="font-bold text-sm sm:text-base uppercase tracking-tight text-foreground leading-snug mt-1 group-hover:text-primary transition-colors">
                                 {title}
                             </h3>
                         </div>
@@ -52,7 +52,7 @@ export default function ProjectCard({
             >
                 <div className="pt-4 mt-4 border-t border-border/70 flex flex-col gap-4">
                     {description.titleDescription && (
-                        <p className="text-xs sm:text-sm font-medium text-foreground leading-relaxed">
+                        <p className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground leading-relaxed">
                             {description.titleDescription}
                         </p>
                     )}
@@ -60,7 +60,7 @@ export default function ProjectCard({
                     {description.items && description.items.length > 0 && (
                         <ul className="space-y-2">
                             {description.items.map((item, i) => (
-                                <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                                <li key={i} className="flex items-start gap-2.5 font-mono text-xs sm:text-sm text-foreground/90 leading-relaxed">
                                     <span className="mt-2 shrink-0 w-1 h-1 rounded-full bg-muted-foreground" />
                                     <span>{item}</span>
                                 </li>
@@ -73,7 +73,7 @@ export default function ProjectCard({
                             {tags.map((tag) => (
                                 <span
                                     key={tag}
-                                    className="font-mono text-[10px] sm:text-xs px-2.5 py-1 border border-border text-muted-foreground bg-background/50 rounded-none"
+                                    className="font-mono text-[10px] sm:text-xs px-2.5 py-0.5 border border-border text-muted-foreground bg-background/50 rounded-none uppercase"
                                 >
                                     {tag}
                                 </span>

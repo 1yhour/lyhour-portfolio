@@ -29,21 +29,21 @@ export function EducationCard({
           onToggle={toggleOpen}
           trigger={
             <div className="min-w-0 flex-1">
-              <h3 className="font-semibold text-foreground leading-snug">{school}</h3>
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-0.5 text-sm text-muted-foreground">
+              <h3 className="font-bold text-sm sm:text-base uppercase tracking-tight text-foreground leading-snug">{school}</h3>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1 font-mono text-[10px] sm:text-xs text-muted-foreground tracking-wide">
                 <span>{period}</span>
-                {degree && <><span className="text-border select-none">|</span><span>{degree}</span></>}
-                {field && <><span className="text-border select-none">|</span><span>{field}</span></>}
+                {degree && <><span className="text-border select-none">|</span><span className="uppercase">{degree}</span></>}
+                {field && <><span className="text-border select-none">|</span><span className="uppercase">{field}</span></>}
               </div>
             </div>
           }
         >
           {details && details.length > 0 && (
-            <ul className="space-y-2 pl-2">
+            <ul className="space-y-2 pt-3">
               {details.map((detail, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-foreground leading-relaxed">
-                  <span className="mt-1.5 shrink-0 w-1 h-1 rounded-full bg-muted-foreground" />
-                  {detail}
+                <li key={i} className="flex items-start gap-2.5 font-mono text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                  <span className="mt-2 shrink-0 w-1 h-1 rounded-full bg-muted-foreground" />
+                  <span>{detail}</span>
                 </li>
               ))}
             </ul>
@@ -52,9 +52,9 @@ export function EducationCard({
 
         {/* tags stay outside Collapsible — always visible */}
         {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-4">
+          <div className="flex flex-wrap gap-1.5 mt-4">
             {tags.map((tag) => (
-              <span key={tag} className="text-xs px-2.5 py-1 rounded-full border border-border text-muted-foreground">
+              <span key={tag} className="font-mono text-[10px] sm:text-xs px-2.5 py-0.5 border border-border text-muted-foreground bg-background/50 rounded-none uppercase">
                 {tag}
               </span>
             ))}

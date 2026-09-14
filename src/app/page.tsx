@@ -13,7 +13,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Section id="home">
-          <Container className="lg:pl-0 lg:pr-0">
+          <Container className="px-0 sm:px-0 md:px-0 lg:px-0 pt-8 md:pt-8 lg:pt-8 pb-0 md:pb-0 lg:pb-0">
             <Hero />
             <GitHubActivity />
           </Container>

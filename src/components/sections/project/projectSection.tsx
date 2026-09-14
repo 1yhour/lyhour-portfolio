@@ -36,6 +36,11 @@ export default function ProjectSection() {
                             />
                         ))}
                     </div>
+                    <div className="border-t border-border py-1.5 flex justify-end mt-6">
+                        <span className="font-mono text-[8px] tracking-[0.25em] uppercase text-muted-foreground select-none">
+                            END OF SECTION
+                        </span>
+                    </div>
                 </div>
             </Container>
         </Section>
