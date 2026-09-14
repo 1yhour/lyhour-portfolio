@@ -107,7 +107,7 @@ export const Notch = ({
   closeOnSelect = true,
   showSelectedValue = true,
   showDividers = true,
-  accentColor = "var(--color-gray-100, #3b82f6)",
+  accentColor = "var(--color-gray-100, #1f2937)",
   offset = 16,
   reveal = true,
   className,
@@ -209,8 +209,8 @@ export const Notch = ({
               style={
                 active
                   ? {
-                      background: `color-mix(in oklab, ${accentColor} 85%, transparent)`,
-                      boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${accentColor} 40%, transparent)`,
+                      background: `color-mix(in oklab, ${accentColor} 60%)`,
+                      boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${accentColor} 40%)`,
                     }
                   : undefined
               }

@@ -7,9 +7,10 @@ import { MdAlternateEmail } from "react-icons/md";
 import { Button } from "../ui/button";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { Section } from "./container";
+import { FaArrowUp } from "react-icons/fa";
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className=" border-border bg-background">
       <Section id="contact">
       <div className="flex flex-col w-full border-l border-r border-border ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 border-b border-border">
@@ -97,11 +98,23 @@ export default function Footer() {
         </span>
         <Button
           variant="ghost"
-          className="hover:bg-transparent hover:text-foreground cursor-pointer"
+          className="hidden sm:inline-flex hover:bg-transparent hover:text-foreground cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           Back to Top <MdKeyboardArrowUp className="ml-2 h-4 w-4" />
         </Button>
+
+        <div className="fixed bottom-5 right-5 z-50 sm:hidden">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-8 w-8 border border-border bg-background/90 backdrop-blur shadow-md hover:bg-foreground hover:text-background cursor-pointer flex items-center justify-center transition-colors"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="Back to top"
+          >
+            <FaArrowUp className="h-4 w-4" />
+          </Button>
+        </div>
       </div>
       <div className="flex flex-col">
         <div className="flex justify-center px-8  md:py-12 overflow-hidden relative w-full">

@@ -64,7 +64,7 @@ export default function Hero() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 relative">
-      <div className="absolute top-0 bottom-0 w-[100vw] left-1/2 -translate-x-1/2 border-t border-b border-border pointer-events-none -z-10"></div>
+      <div className="absolute top-0 bottom-0 w-[100vw] left-1/2 -translate-x-1/2 border-b border-border pointer-events-none -z-10"></div>
 
       <div className="flex flex-row items-center justify-start md:justify-center md:col-span-2">
         <div className="border-r border-border flex justify-center shrink-0">
