@@ -22,7 +22,7 @@ export default function MusicPlayer() {
 
   return (
     <div className="fixed bottom-5 left-5 z-50">
-      <Button onClick={toggleAudio} className="cursor-pointer rounded-full w-10 h-10"> {playing ? <FaPause className="w-4 h-4"/> : <FaPlay className="w-4 h-4"/>}</Button>
+      <Button onClick={toggleAudio} className="cursor-pointer rounded-full w-10 h-10 border border-border bg-background/95 backdrop:blur shadow-sm"> {playing ? <FaPause className="w-4 h-4 text-muted-foreground"/> : <FaPlay className="w-4 h-4 text-muted-foreground"/>}</Button>
     </div>
   )
 }
