@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
-
+import MusicPlayer from "@/components/music/musicplayer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -168,7 +168,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col overflow-x-hidden">{children}</body>
+      <body className="min-h-full flex flex-col overflow-x-hidden">{children} <MusicPlayer/></body>
     </html>
   );
 }

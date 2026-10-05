@@ -277,7 +277,7 @@ export default function Footer() {
         <Button
           variant="ghost"
           size="sm"
-          className="h-9 w-9 border border-border bg-background/95 backdrop-blur shadow-md hover:bg-foreground hover:text-background cursor-pointer flex items-center justify-center transition-colors"
+          className="h-10 w-10 border border-border bg-background/95 backdrop-blur shadow-md hover:bg-foreground hover:text-background cursor-pointer flex items-center justify-center transition-colors"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Back to top"
         >
